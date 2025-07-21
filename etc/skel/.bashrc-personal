@@ -41,7 +41,7 @@ alias adu='sudo apt dist-upgrade'
 ## COPY CONFIG
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 alias cb='cp -f /etc/skel/.bashrc-personal ~/ && exec bash'
-alias cz='cp -f /etc/skel/.zshrc-personal ~/ && cp -f /etc/skel/.oh-my-zsh ~/ && exec zsh'
+alias cz='cp -f /etc/skel/.zshrc-personal ~/ && cp -fr /etc/skel/.oh-my-zsh ~/ && exec zsh'
 alias cf='cp -f /etc/skel/.config/fish/*.fish ~/.config/fish/ && exec fish'
 
 
