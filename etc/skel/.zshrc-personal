@@ -1,5 +1,23 @@
 ### ILSH-SHELLS
 
+
+## ADD TO .BASHRC
+# [[ -f ~/.bashrc-personal ]] && . ~/.bashrc-personal
+
+
+## EXPORT
+export EDITOR='vim'
+export VISUAL='vim'
+export HISTCONTROL=ignoreboth:erasedups
+export PAGER='less'
+
+
+## UPDATE PATH
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+
 ## APT
 alias ac='sudo apt clean'
 alias ai='sudo apt install'
@@ -33,6 +51,31 @@ alias ls='ls --color=auto'
 alias lk='ps -aef |grep -v grep | grep -i '
 alias mv='mv -i'
 alias rg='rg --sort path'
+
+
+## EXTRACT: usage: ex <file>
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
 
 ## FIXES
 alias fix-keys='/usr/local/bin/edu-fix-pacman-databases-and-keys'
@@ -187,7 +230,7 @@ alias rm='trash-put'
 alias unmount-sdb1='udisksctl unmount -b /dev/sdb1'
 alias unmount-sdc1='udisksctl unmount -b /dev/sdc1'
 alias unmount-sdd1='udisksctl unmount -b /dev/sdd1'
-alias shc='echo -n "Enter FILENAME: " && read FILENAME && grep -v "^#" $FILENAME bat '
+alias shc='echo -n "Enter FILENAME: " && read FILENAME && grep -v "^$" $FILENAME | grep -v "^#" | bat '
 alias stow='cd ~/.dotfiles && /usr/bin/stow .'
 alias t='task list '
 alias ta='task add '
