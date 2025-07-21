@@ -186,7 +186,6 @@ alias pubip='curl ifconfig.io'
 ## SHORTCUTS TO DIRECTORIES
 alias .f='cd ~/.dotfiles'
 alias cc='cd ~/.dotfiles/.config/arco-chadwm/chadwm'
-alias cf='cd ~/.dotfiles/.config/fish'
 alias cs='cd ~/.dotfiles/.config/arco-chadwm/sxhkd'
 alias cr='cd ~/.dotfiles/.config/arco-chadwm/scripts'
 alias doc='cd ~/Documents'
